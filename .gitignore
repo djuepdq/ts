@@ -8,3 +8,4 @@ output.md
 redis/*
 wiki/*
 bun.lockb
+seed

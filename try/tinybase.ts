@@ -1,4 +1,3 @@
-// @ts-ignore
 import { createStore } from "tinybase"
 import { readFile } from "node:fs/promises"
 
