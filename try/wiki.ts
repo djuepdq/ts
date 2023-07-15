@@ -35,28 +35,6 @@ export interface Topic {
   prettyName: string
 }
 
-// overwrite topics on server with local files
-export async function forceWikiSync(userId: string) {
-  let fileIgnoreList = ["readme.md", "index.md"]
-  const wikiPath = new URL(
-    "../../../seed/wiki/" + process.env.SEED_FOLDER_NAME,
-    import.meta.url
-  ).pathname
-  // const wikiPath = "/Users/nikiv/src/docs/wiki/docs"
-  const files = await markdownFilePaths(wikiPath, fileIgnoreList)
-  const connections = await getConnections(files)
-  // console.log(files, "files")
-  // console.log(files[0], "files")
-  return
-  if (files.length > 0) {
-    // await mdFileIntoTopic(files[0], userId, wikiPath)
-    // await mdFileIntoTopic(testFile, userId, wikiPath)
-    for (const file of files) {
-      await mdFileIntoTopic(file, userId, wikiPath)
-    }
-  }
-}
-
 async function getConnections(filePaths: string[]) {
   const connections = new Map()
 
@@ -120,7 +98,7 @@ async function getConnections(filePaths: string[]) {
   return result
 }
 
-async function markdownFilePaths(
+export async function markdownFilePaths(
   directoryPath: string,
   ignoreList: string[] = []
 ): Promise<string[]> {
@@ -290,11 +268,7 @@ export async function writeToFile(
   }
 }
 
-async function mdFileIntoTopic(
-  filePath: string,
-  userId: string,
-  rootPath: string
-) {
+export async function mdFileIntoTopic(filePath: string, rootPath: string) {
   console.log(filePath, "file path")
   console.log(rootPath, "root path")
 

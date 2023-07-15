@@ -1,5 +1,6 @@
 import { createStore } from "tinybase"
 import { readFile } from "node:fs/promises"
+import { markdownFilePaths } from "./wiki"
 
 const store = createStore().setValuesSchema({
   filePath: { type: "string" },
@@ -21,9 +22,17 @@ export async function getTopic() {
   console.log(store.getValues())
 }
 
+// sync content of wiki folder to tinybase
+// puts all markdown files into tinybase sqlite db
+export async function wikiSync() {
+  const wikiPath = new URL("../seed/wiki/nikita", import.meta.url).pathname
+  const files = await markdownFilePaths(wikiPath)
+  console.log(files[0])
+  // console.log(files, "files")
+  // mdFileIntoTopic(files[0])
+}
+
 export async function runTinyBase() {
-  await saveFileContent(
-    "/Users/nikiv/src/docs/wiki/docs/macOS/apps/karabiner/karabiner.md"
-  )
-  getTopic()
+  wikiSync()
+  // getTopic()
 }
