@@ -34,7 +34,7 @@ Runs [src/test.ts](src/test.ts) file with [tsx](https://github.com/esbuild-kit/t
 
 ## Deno
 
-[Exploring using Deno](https://github.com/nikitavoloboev/deno) too as it has some interesting ideas/libraries.
+Explore using [Deno in separate repo](https://github.com/nikitavoloboev/deno) as it has interesting ideas/libraries. Might become part of this repo eventually.
 
 ## Contribute
 
