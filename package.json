@@ -2,8 +2,8 @@
   "name": "ts",
   "type": "module",
   "scripts": {
-    "dev": "tput reset && tsx run.ts",
-    "dev:bun": "tput reset && bun run.ts"
+    "dev": "tput reset && bun run.ts",
+    "dev:node": "tput reset && tsx run.ts"
   },
   "devDependencies": {
     "bun-types": "^0.5.0"

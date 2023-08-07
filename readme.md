@@ -2,44 +2,44 @@
 
 ## Setup
 
+Everything is driven using [bun](https://bun.sh/) commands.
+
 ```
-pnpm i
+bun i
 ```
 
 ## Run
 
 ```
-pnpm dev
+bun run dev
 ```
 
-This will run [run.ts](run.ts) file with [tsx](https://github.com/esbuild-kit/tsx).
-
-## Run with Bun
-
-I often prefer to run things with [Bun](https://bun.sh/) if library supports.
+Runs [run.ts](run.ts) file with bun.
 
 ```
-pnpm dev:bun
+bun run dev:node
 ```
 
-## Publish libraries
+Runs [run.ts](run.ts) file with [tsx](https://github.com/esbuild-kit/tsx).
 
-Need to setup a nice way to export things inside [lib](lib) folder to NPM.
+<!-- ## Publish libraries
 
-## File structure
+Need to setup a nice way to export things inside [lib](lib) folder to NPM. -->
+
+<!-- ## File structure
 
 - [lib](lib) - library code
-- [try](try) - trying things out
+- [try](try) - trying things out -->
 
 ## Deno
 
-I also am [exploring using Deno](https://github.com/nikitavoloboev/deno) as it has some interesting ideas/libraries.
+[Exploring using Deno](https://github.com/nikitavoloboev/deno) too as it has some interesting ideas/libraries.
 
 ## Discuss / help
 
 Search for [existing issues](../../issues) or open [new one](../../issues/new/choose).
 
-## Thank you
+## ♥️
 
 You can support me on [GitHub](https://github.com/sponsors/nikitavoloboev) or look into [other projects](https://nikiv.dev/projects) I shared.
 
