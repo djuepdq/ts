@@ -9,3 +9,6 @@ redis/*
 wiki/*
 bun.lockb
 seed
+http
+packages/git
+packages/other

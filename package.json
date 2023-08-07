@@ -15,6 +15,7 @@
     "@clack/core": "^0.2.0",
     "@clack/prompts": "^0.5.0",
     "@libsql/client": "^0.2.2",
+    "@nozbe/microfuzz": "^1.0.0",
     "@types/node": "^20.1.4",
     "@upstash/redis": "^1.20.6",
     "chatgpt": "^4.7.1",
@@ -26,8 +27,10 @@
     "jest-fixtures": "^0.6.0",
     "magic-regexp": "^0.6.2",
     "markdown-link-extractor": "^3.1.0",
+    "osascript-tag": "^0.1.2",
     "prettier": "^2.8.8",
     "simple-git": "^3.19.0",
+    "sqlite3": "^5.1.6",
     "telegraf": "^4.12.2",
     "tinybase": "^4.0.0",
     "zx": "^7.1.1"
