@@ -50,6 +50,10 @@ There is also a [personal Discord](https://discord.com/invite/TVafwaD23d) you ca
 
 - setup turbo and do proper code sharing
 
+## Inspiration
+
+- [nothing-but](https://github.com/thetarnav/nothing-but)
+
 ### ♥️
 
 [Support on GitHub](https://github.com/sponsors/nikitavoloboev) or look into [other projects](https://nikiv.dev/projects).
