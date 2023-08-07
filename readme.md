@@ -20,13 +20,13 @@ bun i
 bun run dev
 ```
 
-Runs [src/test.ts](src/main.ts) file with [bun](https://bun.sh/).
+Runs [src/main.ts](src/main.ts) file with [bun](https://bun.sh/).
 
 ```
 bun run dev:node
 ```
 
-Runs [src/test.ts](src/main.ts) file with [tsx](https://github.com/esbuild-kit/tsx).
+Runs [src/main.ts](src/main.ts) file with [tsx](https://github.com/esbuild-kit/tsx).
 
 ## Publish packages
 
