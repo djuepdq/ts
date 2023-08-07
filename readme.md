@@ -41,7 +41,7 @@ The tasks to do are outlined in [existing issues](../../issues).
 
 If issue/idea you have is not there, [open new issue](../../issues/new/choose) or [start discussion](../../discussions).
 
-Any PR with code/doc changes is welcome. ✨
+Any PR with code/doc improvements is welcome. ✨
 
 There is also a [personal Discord](https://discord.com/invite/TVafwaD23d) you can join for more indepth discussions related to this repo or [others](https://github.com/nikitavoloboev#src).
 
