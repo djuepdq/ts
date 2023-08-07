@@ -1,4 +1,4 @@
-# TS libraries
+# TS
 
 ## File structure
 
@@ -20,13 +20,13 @@ bun i
 bun run dev
 ```
 
-Runs [src/main.ts](src/main.ts) file with [bun](https://bun.sh/).
+Runs: `tput reset && bun src/main.ts`.
 
 ```
 bun run dev:node
 ```
 
-Runs [src/main.ts](src/main.ts) file with [tsx](https://github.com/esbuild-kit/tsx).
+Runs: `tput reset && tsx src/main.ts`.
 
 ## Publish packages
 
