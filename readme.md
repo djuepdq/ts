@@ -37,12 +37,12 @@ Need to setup a nice way to export things inside [lib](lib) folder to NPM. -->
 
 ## Discuss / help
 
-Search for [existing issues](../../issues) or open [new one](../../issues/new/choose).
+Search for [existing issues](../../issues), open [new issue](../../issues/new/choose) or [start discussion](../../discussions).
+
+There is also a [personal Discord](https://discord.com/invite/TVafwaD23d) you can join for more indepth questions.
 
 ## ♥️
 
-You can support me on [GitHub](https://github.com/sponsors/nikitavoloboev) or look into [other projects](https://nikiv.dev/projects) I shared.
-
-I also have [personal Discord](https://discord.com/invite/TVafwaD23d) you can join for more indepth discussions.
+[Support on GitHub](https://github.com/sponsors/nikitavoloboev) or look into [other projects](https://nikiv.dev/projects).
 
 [![MIT](http://bit.ly/mitbadge)](https://choosealicense.com/licenses/mit/) [![Twitter](http://bit.ly/nikitatweet)](https://twitter.com/nikitavoloboev)
