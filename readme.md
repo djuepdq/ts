@@ -41,7 +41,7 @@ Search for [existing issues](../../issues), open [new issue](../../issues/new/ch
 
 There is also a [personal Discord](https://discord.com/invite/TVafwaD23d) you can join for more indepth questions.
 
-## ♥️
+### ♥️
 
 [Support on GitHub](https://github.com/sponsors/nikitavoloboev) or look into [other projects](https://nikiv.dev/projects).
 
