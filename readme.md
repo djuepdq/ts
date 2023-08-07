@@ -1,5 +1,11 @@
 # TS libraries
 
+## File structure
+
+- [packages](packages) - TS packages
+- [src](src) - testing out TS code
+  - [test.ts](src/test.ts) - use file to run code quickly
+
 ## Setup
 
 Everything is driven using [bun](https://bun.sh/) commands.
@@ -14,22 +20,17 @@ bun i
 bun run dev
 ```
 
-Runs [run.ts](run.ts) file with bun.
+Runs [src/test.ts](src/test.ts) file with [bun](https://bun.sh/).
 
 ```
 bun run dev:node
 ```
 
-Runs [run.ts](run.ts) file with [tsx](https://github.com/esbuild-kit/tsx).
+Runs [src/test.ts](src/test.ts) file with [tsx](https://github.com/esbuild-kit/tsx).
 
-<!-- ## Publish libraries
+## Publish packages
 
-Need to setup a nice way to export things inside [lib](lib) folder to NPM. -->
-
-<!-- ## File structure
-
-- [lib](lib) - library code
-- [try](try) - trying things out -->
+> TODO:
 
 ## Deno
 
@@ -37,13 +38,17 @@ Need to setup a nice way to export things inside [lib](lib) folder to NPM. -->
 
 ## Contribute
 
-The tasks to do are outlined in [existing issues](../../issues).
+The tasks to do are outlined in [existing issues](../../issues) or [below](#tasks) (until I setup nice GitHub sync).
 
 If issue/idea you have is not there, [open new issue](../../issues/new/choose) or [start discussion](../../discussions).
 
 Any PR with code/doc improvements is welcome. ✨
 
 There is also a [personal Discord](https://discord.com/invite/TVafwaD23d) you can join for more indepth discussions related to this repo or [others](https://github.com/nikitavoloboev#src).
+
+## Tasks
+
+- setup turbo and do proper code sharing
 
 ### ♥️
 
