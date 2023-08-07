@@ -35,11 +35,15 @@ Need to setup a nice way to export things inside [lib](lib) folder to NPM. -->
 
 [Exploring using Deno](https://github.com/nikitavoloboev/deno) too as it has some interesting ideas/libraries.
 
-## Discuss / help
+## Contribute
 
-Search for [existing issues](../../issues), open [new issue](../../issues/new/choose) or [start discussion](../../discussions).
+The tasks to do are outlined in [existing issues](../../issues).
 
-There is also a [personal Discord](https://discord.com/invite/TVafwaD23d) you can join for more indepth questions.
+If issue/idea you have is not there, [open new issue](../../issues/new/choose) or [start discussion](../../discussions).
+
+Any PR with code/doc changes is welcome. ✨
+
+There is also a [personal Discord](https://discord.com/invite/TVafwaD23d) you can join for more indepth discussions related to this repo or [others](https://github.com/nikitavoloboev#src).
 
 ### ♥️
 
