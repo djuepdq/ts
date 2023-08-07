@@ -4,7 +4,7 @@
 
 - [packages](packages) - TS packages
 - [src](src) - testing out TS code
-  - [test.ts](src/test.ts) - use file to run code quickly
+  - [main.ts](src/main.ts) - use file to run code quickly
 
 ## Setup
 
@@ -20,13 +20,13 @@ bun i
 bun run dev
 ```
 
-Runs [src/test.ts](src/test.ts) file with [bun](https://bun.sh/).
+Runs [src/test.ts](src/main.ts) file with [bun](https://bun.sh/).
 
 ```
 bun run dev:node
 ```
 
-Runs [src/test.ts](src/test.ts) file with [tsx](https://github.com/esbuild-kit/tsx).
+Runs [src/test.ts](src/main.ts) file with [tsx](https://github.com/esbuild-kit/tsx).
 
 ## Publish packages
 
