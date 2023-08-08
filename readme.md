@@ -20,13 +20,13 @@ bun i
 bun run dev
 ```
 
-Runs: `tput reset && bun src/main.ts`.
+Runs: `tput reset && bun src/main.ts`
 
 ```
 bun run dev:node
 ```
 
-Runs: `tput reset && tsx src/main.ts`.
+Runs: `tput reset && tsx src/main.ts`
 
 ## Publish packages
 
