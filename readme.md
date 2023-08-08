@@ -4,7 +4,7 @@
 
 ## File structure
 
-- [packages](packages) - TS packages
+- [lib](lib) - TS libraries
 - [src](src) - testing out TS code
   - [main.ts](src/main.ts) - use file to run code quickly
 
@@ -30,7 +30,7 @@ bun run dev:node
 
 Runs: `tput reset && tsx src/main.ts`
 
-## Publish packages
+## Publish libraries
 
 > TODO:
 
