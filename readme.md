@@ -1,5 +1,7 @@
 # TS
 
+> TS libraries + testing code
+
 ## File structure
 
 - [packages](packages) - TS packages
