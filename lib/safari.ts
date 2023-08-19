@@ -32,9 +32,13 @@ async function executeJxa(script: string) {
   }
 }
 
-async function fetchLocalTabs(): Promise<LocalTab[]> {
+// TODO: add support for google chrome, chrome canary, safari tech preview
+// TODO: change from safari.ts to browser.ts, use code as part of CLI
+async function fetchLocalTabs(
+  appIdentifier: "com.apple.Safari"
+): Promise<LocalTab[]> {
   return executeJxa(`
-    const safari = Application("com.apple.Safari");
+    const safari = Application("${appIdentifier}");
     const tabs = [];
     safari.windows().map(window => {
       const windowTabs = window.tabs();
@@ -55,7 +59,7 @@ async function fetchLocalTabs(): Promise<LocalTab[]> {
 `)
 }
 
-const tabs = await fetchLocalTabs()
+const tabs = await fetchLocalTabs("com.apple.Safari")
 
 const links = tabs.map((tab) => {
   return {
