@@ -1,0 +1,5 @@
+## Run
+
+```
+tsx index.ts
+```
