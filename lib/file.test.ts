@@ -1,16 +1,19 @@
 import { expect, test } from "bun:test";
 import { writeContentToSrcData } from "./file";
+import fs from "node:fs"
 
 test("save array of JSON in ~/src/data", async () => {
   const arrayObject = [{
-    value: "test"
+    value: "test value"
   }, {
     value: "another value"
   }]
-  console.log("run!!")
-  const res = await writeContentToSrcData(arrayObject, "test-array.json")
-  console.log(res)
-  expect(2 + 2).toBe(5);
-
-  // expect(2 + 2).toBe(4);
+  const filePath = await writeContentToSrcData(arrayObject, "test-array.json")
+  console.log(filePath, "file path")
+  if (filePath) {
+    const file = Bun.file(filePath!)
+    const fileContent = await file.text()
+    expect(fileContent).toContain("test value")
+    fs.unlinkSync(filePath)
+  }
 })

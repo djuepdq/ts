@@ -4,35 +4,38 @@ import os from "os"
 
 
 // take in JSON of some kind and write it to ~/src/data
+// returns path of file on success
 export async function writeContentToSrcData(
   data: Array<any>,
   fileName: string,
-): Promise<void> {
+): Promise<string | void> {
   const srcDataDir = path.join(os.homedir(), "src", "data")
-  console.log(srcDataDir, "data dir")
 
-  // const filePath = path.join(desktopDir, fileName)
+  const filePath = path.join(srcDataDir, fileName)
 
-  // try {
-  //   await fs.writeFile(filePath, JSON.stringify(data, null, 2))
-  //   console.log(`File written successfully to ${filePath}`)
-  // } catch (error) {
-  //   console.error("An error occurred:", error)
-  // }
+  try {
+    await fs.writeFile(filePath, JSON.stringify(data, null, 2))
+    console.log(`File written successfully to ${filePath}`)
+    return filePath
+  } catch (error) {
+    console.error("Error writing to file:", error)
+  }
 }
 
 // take in JSON of some kind and write it to ~/Desktop
+// returns path of file on success
 export async function writeContentToDesktopFile(
   data: Array<any>,
   fileName: string,
-): Promise<void> {
+): Promise<string | void> {
   const desktopDir = path.join(os.homedir(), "Desktop")
   const filePath = path.join(desktopDir, fileName)
 
   try {
     await fs.writeFile(filePath, JSON.stringify(data, null, 2))
     console.log(`File written successfully to ${filePath}`)
+    return filePath
   } catch (error) {
-    console.error("An error occurred:", error)
+    console.error("Error writing to file:", error)
   }
 }
