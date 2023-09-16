@@ -24,6 +24,12 @@ bun dev
 
 Runs: `tput reset && bun --watch run.ts`
 
+## Tests
+
+```
+bun test:watch
+```
+
 ## Publish libraries
 
 > TODO:
