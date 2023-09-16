@@ -14,3 +14,4 @@ packages/git
 packages/other
 deno
 docs/private-todo.md
+dist

@@ -32,7 +32,19 @@ bun test:watch
 
 ## Publish libraries
 
-> TODO:
+```
+tsup lib/file.ts --format esm --dts
+```
+
+Will create a `dist` folder out of exported functions from `file.ts`.
+
+Update version number in package.json and commit changes.
+
+Then you can run:
+
+```
+npm publish
+```
 
 ## Deno
 
