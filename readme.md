@@ -22,13 +22,7 @@ bun i
 bun dev
 ```
 
-Runs: `tput reset && bun src/main.ts`
-
-```
-bun dev:node
-```
-
-Runs: `tput reset && tsx src/main.ts`
+Runs: `tput reset && bun --watch run.ts`
 
 ## Publish libraries
 
