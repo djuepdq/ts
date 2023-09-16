@@ -3,7 +3,8 @@
   "type": "module",
   "scripts": {
     "dev": "tput reset && bun --watch run.ts",
-    "run:node": "tput reset && tsx run.ts"
+    "test:watch": "bun test --watch",
+    "node": "tput reset && tsx run.ts"
   },
   "devDependencies": {
     "bun-types": "^0.5.0"
