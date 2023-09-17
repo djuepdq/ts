@@ -1,4 +1,4 @@
-# Util
+# Util [![NPM Package][https://img.shields.io/npm/v/three]][https://www.npmjs.com/package/three]
 
 > Random useful code for my projects.
 
