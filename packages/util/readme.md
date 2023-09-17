@@ -1,4 +1,4 @@
-# Util [![NPM Package][https://img.shields.io/npm/v/three]][https://www.npmjs.com/package/three]
+# Util [<img alt="npmjs.com" src="https://img.shields.io/npm/v/@nikitavoloboev/util" height="20">](https://www.npmjs.com/package/@nikitavoloboev/util)
 
 > Random useful code for my projects.
 
