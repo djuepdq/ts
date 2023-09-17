@@ -1,0 +1,26 @@
+{
+  "name": "@nikitavoloboev/util",
+  "scripts": {
+    "dev": "bun test --watch",
+    "build": "tsup src/index.ts --format esm --dts"
+  },
+  "type": "module",
+  "version": "0.0.1",
+  "publishConfig": {
+    "access": "public"
+  },
+  "exports": {
+    ".": "./dist/index.js"
+  },
+  "files": [
+    "./dist",
+    "./src"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "bun-types": "^0.5.0"
+  },
+  "prettier": {
+    "semi": false
+  }
+}

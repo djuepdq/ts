@@ -2,7 +2,6 @@ import { promises as fs } from "fs"
 import path from "path"
 import os from "os"
 
-
 // take in JSON of some kind and write it to ~/src/data
 // returns path of file on success
 export async function writeContentToSrcData(

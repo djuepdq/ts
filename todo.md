@@ -1,4 +1,6 @@
 - setup turbo and do proper code sharing
+- for some reason `bun run build` that uses `tsup` fails with error, fix it
+- make publishing to npm smooth and automated, check out [bump](https://github.com/fabiospampinato/bump)
 
 ## Try
 
@@ -15,3 +17,9 @@
 - https://github.com/vadimdemedes/pastel
 - https://github.com/vadimdemedes/ink-ui
 - https://github.com/theseyan/bkg
+
+## Better npm publishing
+
+- inspiration
+    - https://github.com/inlang/monorepo/blob/main/inlang/source-code/result/package.json
+    - https://github.com/thetarnav/nothing-but/tree/main/packages
