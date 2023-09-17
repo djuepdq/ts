@@ -1,7 +1,16 @@
-import { normalizeURL, joinURL, parseURL } from 'ufo'
+import { parseURL } from 'ufo'
 
-// const url = "https://www.edgedb.com"
+const url = "https://www.edgedb.com"
 
-// console.log(parseURL(url))
+console.log(url, "url")
 
-// const parsedUrl = parseURL(url)
+let parsedUrl = parseURL(url)
+console.log(parsedUrl.host)
+
+let urlWithoutProtocol = parsedUrl.host
+
+if (urlWithoutProtocol?.includes("www")) {
+  urlWithoutProtocol = parsedUrl.host?.replace("www.", "")
+}
+
+console.log(urlWithoutProtocol)
