@@ -21,4 +21,14 @@ test("url parsing", async () => {
   ;[url, protocol] = splitUrlByProtocol(testUrl)
   expect(url).toContain("blog.jessfraz.com/post/a-tale-of-two-3d-printers")
   expect(protocol).toContain("https")
+
+  testUrl = "https://www.youtube.com/watch?v=BDpqt-haLLM"
+  ;[url, protocol] = splitUrlByProtocol(testUrl)
+  expect(url).toContain("youtube.com/watch?v=BDpqt-haLLM")
+  expect(protocol).toContain("https")
+
+  testUrl = "https://www.youtube.com/results?search_query=karabiner+wow"
+  ;[url, protocol] = splitUrlByProtocol(testUrl)
+  expect(url).toContain("youtube.com/results?search_query=karabiner+wow")
+  expect(protocol).toContain("https")
 })
