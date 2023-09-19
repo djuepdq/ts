@@ -1,6 +1,6 @@
 # Util [<img alt="npmjs.com" src="https://img.shields.io/npm/v/@nikitavoloboev/util" height="20">](https://www.npmjs.com/package/@nikitavoloboev/util)
 
-> Random useful code for my projects.
+> Random useful code for my projects
 
 ## Run tests
 

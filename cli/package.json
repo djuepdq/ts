@@ -7,6 +7,9 @@
   "devDependencies": {
     "bun-types": "^0.5.0"
   },
+  "dependencies": {
+    "@nikitavoloboev/util": "^0.0.1"
+  },
   "prettier": {
     "semi": false
   }
