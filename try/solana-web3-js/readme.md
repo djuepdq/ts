@@ -1,5 +1,0 @@
-## Run
-
-```
-tsx index.ts
-```
