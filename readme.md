@@ -4,9 +4,9 @@
 
 ## File structure
 
-- [lib](lib) - TS libraries
-- [src](src) - testing out TS code
-  - [main.ts](src/main.ts) - use file to run code quickly
+- [packages](packages) - TS packages
+  - [util](packages/util) - Utility functions
+- [run](run) - running various TS code fast
 
 ## Setup
 
