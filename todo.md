@@ -26,3 +26,6 @@
 - https://github.com/zandaqo/structurae
 - https://github.com/Morglod/tseep
 - https://github.com/asteasolutions/zod-to-openapi
+- https://github.com/ramda/ramda
+- https://github.com/web-infra-dev/oxc
+- https://github.com/biomejs/biome
