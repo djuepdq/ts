@@ -1,5 +1,5 @@
 import { create, search, insert } from "@orama/orama"
-import { TablesSchema, createQueries, createStore } from "tinybase"
+import { TablesSchema, createQueries, createStore } from "tinybase/with-schemas"
 
 const tableSchema: TablesSchema = {
   globalLinks: {
@@ -7,10 +7,9 @@ const tableSchema: TablesSchema = {
     url: { type: "string" },
     id: { type: "string" },
   },
-}
+} as const
 
-const store = createStore()
-store.setTablesSchema(tableSchema)
+const store = createStore().setTablesSchema(tableSchema)
 
 store.addRow("globalLinks", {
   id: "1",
@@ -39,20 +38,8 @@ const db = await create({
   },
 })
 
-// await insert(db, {
-//   id: "1",
-//   title: "Learn Anything",
-//   url: "https://learn-anything.xyz",
-// })
-
-// await insert(db, {
-//   id: "2",
-//   title: "TinyBase",
-//   url: "https://tinybase.org",
-// })
-
 const promises: Promise<string>[] = []
-store.forEachRow("globalLinks", async (rowId) => {
+store.forEachRow("globalLinks", (rowId, _) => {
   const row = store.getRow("globalLinks", rowId)
   promises.push(
     insert(db, {
