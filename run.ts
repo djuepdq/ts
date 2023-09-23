@@ -39,15 +39,28 @@ const db = await create({
   },
 })
 
-queries.forEachResultRow("allGlobalLinks", async (rowId) => {
-  const row = queries.getResultRow("allGlobalLinks", rowId)
-  console.log(row, "row")
-  await insert(db, {
-    id: row.id.toString(),
-    url: row.url.toString(),
-    title: row.title.toString(),
-  })
+await insert(db, {
+  id: "1",
+  title: "Learn Anything",
+  url: "https://learn-anything.xyz",
 })
+
+await insert(db, {
+  id: "2",
+  title: "TinyBase",
+  url: "https://tinybase.org",
+})
+
+// queries.forEachResultRow("allGlobalLinks", async (rowId) => {
+//   const row = queries.getResultRow("allGlobalLinks", rowId)
+//   console.log(row, "row")
+//   console.log(row.title.toString(), "title")
+//   await insert(db, {
+//     id: row.id.toString(),
+//     url: row.url.toString(),
+//     title: row.title.toString(),
+//   })
+// })
 
 const searchResult = await search(db, {
   term: "Learn",
