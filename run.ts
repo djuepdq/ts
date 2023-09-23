@@ -1,7 +1,7 @@
 import { create, search, insert } from "@orama/orama"
 import { TablesSchema, createQueries, createStore } from "tinybase/with-schemas"
 
-const tableSchema: TablesSchema = {
+const tableSchema = {
   globalLinks: {
     title: { type: "string" },
     url: { type: "string" },
@@ -51,17 +51,6 @@ store.forEachRow("globalLinks", (rowId, _) => {
 })
 
 await Promise.all(promises)
-
-// queries.forEachResultRow("allGlobalLinks", async (rowId) => {
-//   const row = queries.getResultRow("allGlobalLinks", rowId)
-//   console.log(row, "row")
-//   console.log(row.title.toString(), "title")
-//   await insert(db, {
-//     id: row.id.toString(),
-//     url: row.url.toString(),
-//     title: row.title.toString(),
-//   })
-// })
 
 const searchResult = await search(db, {
   term: "TinyBase",
