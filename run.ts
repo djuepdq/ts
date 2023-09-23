@@ -1,5 +1,5 @@
 import { create, search, insert } from "@orama/orama"
-import { TablesSchema, createQueries, createStore } from "tinybase/with-schemas"
+import { createQueries, createStore } from "tinybase/with-schemas"
 
 const tableSchema = {
   globalLinks: {
