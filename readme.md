@@ -33,10 +33,10 @@ bun test:watch
 ## Publish libraries
 
 ```
-tsup lib/file.ts --format esm --dts
+tsup src/index.ts --format esm --dts
 ```
 
-Will create a `dist` folder out of exported functions from `file.ts`.
+Will create a `dist` folder out of exported functions.
 
 Update version number in package.json and commit changes.
 

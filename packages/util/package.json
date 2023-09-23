@@ -12,9 +12,10 @@
   "exports": {
     ".": "./dist/index.js"
   },
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "files": [
-    "./dist",
-    "./src"
+    "./dist"
   ],
   "license": "MIT",
   "devDependencies": {
@@ -22,5 +23,9 @@
   },
   "prettier": {
     "semi": false
+  },
+  "dependencies": {
+    "tsup": "^7.2.0",
+    "typescript": "^5.2.2"
   }
 }
