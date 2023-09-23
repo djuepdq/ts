@@ -52,14 +52,16 @@ const db = await create({
 // })
 
 const promises = []
-const row = store.getRow("globalLinks", rowId)
+store.forEachRow("globalLinks", async (rowId) => {
+  const row = store.getRow("globalLinks", rowId)
   promises.push(
     insert(db, {
-      id: http://row.id,
+      id: row.id,
       url: row.url,
       title: row.title,
     })
   )
+})
 
 await Promise.all(promises)
 
@@ -75,7 +77,7 @@ await Promise.all(promises)
 // })
 
 const searchResult = await search(db, {
-  term: "Learn",
+  term: "TinyBase",
   properties: ["title"],
   threshold: 0.5,
 })
