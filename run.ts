@@ -51,7 +51,7 @@ const db = await create({
 //   url: "https://tinybase.org",
 // })
 
-const promises = []
+const promises: Promise<string>[] = []
 store.forEachRow("globalLinks", async (rowId) => {
   const row = store.getRow("globalLinks", rowId)
   promises.push(
