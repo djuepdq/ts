@@ -39,16 +39,31 @@ const db = await create({
   },
 })
 
-await insert(db, {
-  id: "1",
-  title: "Learn Anything",
-  url: "https://learn-anything.xyz",
-})
+// await insert(db, {
+//   id: "1",
+//   title: "Learn Anything",
+//   url: "https://learn-anything.xyz",
+// })
 
-await insert(db, {
-  id: "2",
-  title: "TinyBase",
-  url: "https://tinybase.org",
+// await insert(db, {
+//   id: "2",
+//   title: "TinyBase",
+//   url: "https://tinybase.org",
+// })
+
+store.forEachRow("globalLinks", async (rowId, forEachCell) => {
+  console.log(rowId, "row id")
+  let globalLink = {}
+  forEachCell((cellId, cellValue) => {
+    console.log(cellId, "id")
+    console.log(cellValue, "value")
+    globalLink[cellId] = cellValue
+  })
+  await insert(db, {
+    id: globalLink.id,
+    url: globalLink.url,
+    title: globalLink.title,
+  })
 })
 
 // queries.forEachResultRow("allGlobalLinks", async (rowId) => {
