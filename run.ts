@@ -51,20 +51,22 @@ const db = await create({
 //   url: "https://tinybase.org",
 // })
 
-store.forEachRow("globalLinks", async (rowId, forEachCell) => {
-  console.log(rowId, "row id")
-  let globalLink = {}
-  forEachCell((cellId, cellValue) => {
-    console.log(cellId, "id")
-    console.log(cellValue, "value")
-    globalLink[cellId] = cellValue
+await Promise.all(
+  store.forEachRow("globalLinks", async (rowId, forEachCell) => {
+    console.log(rowId, "row id")
+    let globalLink = {}
+    forEachCell((cellId, cellValue) => {
+      console.log(cellId, "id")
+      console.log(cellValue, "value")
+      globalLink[cellId] = cellValue
+    })
+    await insert(db, {
+      id: globalLink.id,
+      url: globalLink.url,
+      title: globalLink.title,
+    })
   })
-  await insert(db, {
-    id: globalLink.id,
-    url: globalLink.url,
-    title: globalLink.title,
-  })
-})
+)
 
 // queries.forEachResultRow("allGlobalLinks", async (rowId) => {
 //   const row = queries.getResultRow("allGlobalLinks", rowId)
