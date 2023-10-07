@@ -6,7 +6,7 @@
 
 - [packages](packages) - TS packages
   - [util](packages/util) - Utility functions
-- [run](run) - running various TS code fast
+- [run](run) - running various TS code
 
 ## Setup
 
@@ -17,6 +17,8 @@ bun i
 ```
 
 ## Run
+
+I use this repo to test TS code fast. Create a file `run.ts` in root, if you want to be able to run below command.
 
 ```
 bun dev
@@ -31,6 +33,9 @@ bun test:watch
 ```
 
 ## Publish libraries
+
+> **Warning**
+> I still don't know how to publish libraries in TS well. Below instructions are incomplete. If you know how to publish TS packages, please contact me on [X](https://twitter.com/nikitavoloboev) ♥️
 
 ```
 tsup src/index.ts --format esm --dts
