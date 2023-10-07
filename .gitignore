@@ -16,3 +16,4 @@ deno
 docs/private-todo.md
 dist
 packages/solid-ui
+run.ts

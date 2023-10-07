@@ -6,7 +6,7 @@ import os from "os"
 // returns path of file on success
 export async function writeContentToSrcData(
   data: Array<any>,
-  fileName: string,
+  fileName: string
 ): Promise<string | void> {
   const srcDataDir = path.join(os.homedir(), "src", "data")
 
@@ -25,7 +25,7 @@ export async function writeContentToSrcData(
 // returns path of file on success
 export async function writeContentToDesktopFile(
   data: Array<any>,
-  fileName: string,
+  fileName: string
 ): Promise<string | void> {
   const desktopDir = path.join(os.homedir(), "Desktop")
   const filePath = path.join(desktopDir, fileName)
