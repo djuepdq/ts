@@ -37,6 +37,8 @@ bun test:watch
 > **Warning**
 > I still don't know how to publish libraries in TS well. Below instructions are incomplete. If you know how to publish TS packages, please contact me on [X](https://twitter.com/nikitavoloboev) ♥️
 
+Thinking of trying [this approach with Deno](https://dev.to/jlarky/creating-an-npm-package-in-2024-deno-dnt-3467).
+
 ```
 tsup src/index.ts --format esm --dts
 ```

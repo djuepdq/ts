@@ -4,6 +4,7 @@
 
 ## Better npm publishing
 
+- read https://dev.to/jlarky/creating-an-npm-package-in-2024-deno-dnt-3467 and make use of it
 - inspiration
   - https://github.com/inlang/monorepo/blob/main/inlang/source-code/result/package.json
   - https://github.com/thetarnav/nothing-but/tree/main/packages
