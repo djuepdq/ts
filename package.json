@@ -27,6 +27,7 @@
     "jest-fixtures": "^0.6.0",
     "magic-regexp": "^0.6.2",
     "markdown-link-extractor": "^3.1.0",
+    "open": "^9.1.0",
     "osascript-tag": "^0.1.2",
     "prettier": "^2.8.8",
     "simple-git": "^3.19.0",
