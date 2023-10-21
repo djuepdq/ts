@@ -16,5 +16,6 @@
       "bun-types", // add Bun global
       "node"
     ]
-  }
+  },
+  "exclude": ["**/postcss.config.cjs"]
 }
