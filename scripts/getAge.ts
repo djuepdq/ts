@@ -1,3 +1,11 @@
+// @ts-ignore
+const args = Bun.argv
+const date = args[2]
+
+if (date) {
+  console.log(getAge(date))
+}
+
 function getAge(dateString: string): string {
   const today = new Date()
   const [day, month, year] = dateString.split("/")
@@ -19,5 +27,3 @@ function getAge(dateString: string): string {
 
   return `${years} years ${months} months ${days} days`
 }
-
-console.log(getAge("12/04/1995"))
