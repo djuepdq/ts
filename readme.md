@@ -6,7 +6,7 @@
 
 - [packages](packages) - TS packages
   - [util](packages/util) - Utility functions
-- [run](run) - running various TS code
+- [try](try) - trying various TS code/libraries
 
 ## Setup
 

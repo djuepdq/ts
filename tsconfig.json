@@ -12,10 +12,11 @@
     "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true,
     "allowJs": true,
+    "outDir": "./dist",
     "types": [
       "bun-types", // add Bun global
       "node"
     ]
   },
-  "exclude": ["**/postcss.config.cjs"]
+  "exclude": ["**/*.cjs", "**/postcss.config.cjs"]
 }
