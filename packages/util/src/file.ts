@@ -38,3 +38,26 @@ export async function writeContentToDesktopFile(
     console.error("Error writing to file:", error)
   }
 }
+
+// pass import.meta.path into this function as first arg
+export async function readFileContent(filePath: string) {
+  const file = Bun.file(filePath)
+  return await file.text()
+}
+
+export function getFilePathOfFileFromProvidedAbsolutePathFromExecutedBunFile(
+  filePathOfBunFile: string,
+  absolutePath: string
+) {
+  const directoryPath = path.dirname(filePathOfBunFile)
+  const filePath = path.join(directoryPath, absolutePath)
+  return filePath
+}
+
+export async function zipFile(filePath: string) {
+  const file = Bun.file(filePath)
+  const data = new Uint8Array(await file.arrayBuffer())
+  const gzipped = Bun.gzipSync(data)
+  const gzFilePath = `${filePath}.gz`
+  Bun.write(gzFilePath, gzipped)
+}
