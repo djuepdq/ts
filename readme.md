@@ -10,10 +10,10 @@
 
 ## Setup
 
-I use [pnpm](https://pnpm.io) to install deps but [bun](https://bun.sh/) to run things.
+[Bun](https://bun.sh/) is used to install deps and run things.
 
 ```
-pnpm i
+bun i
 ```
 
 ## Run
