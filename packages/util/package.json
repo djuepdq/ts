@@ -1,5 +1,5 @@
 {
-  "name": "@nikitavoloboev/util",
+  "name": "@nikiv/util",
   "scripts": {
     "dev": "bun test --watch",
     "build": "tsup src/index.ts --format esm --dts"

@@ -10,10 +10,10 @@
 
 ## Setup
 
-Everything is driven using [bun](https://bun.sh/) commands.
+I use [pnpm](https://pnpm.io) to install deps but [bun](https://bun.sh/) to run things.
 
 ```
-bun i
+pnpm i
 ```
 
 ## Run
