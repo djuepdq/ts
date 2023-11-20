@@ -1,7 +1,8 @@
 {
   "name": "ts",
   "scripts": {
-    "dev": "tput reset && bun --watch run.ts",
+    "dev": "bun --watch run.ts",
+    "cmd": "bun --watch cmd.ts",
     "build": "tsup lib/file.ts --format esm --dts",
     "test:watch": "bun test --watch",
     "node": "tput reset && tsx run.ts"
@@ -19,6 +20,7 @@
     "@types/node": "^20.1.4",
     "@upstash/redis": "^1.20.6",
     "chatgpt": "^4.7.1",
+    "citty": "^0.1.4",
     "clipboardy": "^3.0.0",
     "dotenv": "^16.0.3",
     "effect": "^2.0.0-next.24",
