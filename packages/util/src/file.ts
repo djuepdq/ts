@@ -1,4 +1,4 @@
-import { promises as fs } from "fs"
+import { promises as fs, writeFileSync } from "fs"
 import path from "path"
 import os from "os"
 
@@ -60,4 +60,94 @@ export async function zipFile(filePath: string) {
   const gzipped = Bun.gzipSync(data)
   const gzFilePath = `${filePath}.gz`
   Bun.write(gzFilePath, gzipped)
+}
+
+export async function updateConfigFile(
+  absolutePathToConfigFileFromHomeConfigFolder: string,
+  key: string,
+  value: string
+) {
+  const configFilePath = path.join(
+    os.homedir(),
+    `.config/${absolutePathToConfigFileFromHomeConfigFolder}`
+  )
+
+  try {
+    let content = ""
+
+    if (await fileExists(configFilePath)) {
+      content = await fs.readFile(configFilePath, "utf-8")
+    } else {
+      await fs.writeFile(configFilePath, "")
+    }
+
+    // Split the content by lines
+    const lines = content.split("\n")
+
+    // Find the line with the key
+    const lineIndex = lines.findIndex((line) => line.startsWith(`${key}=`))
+
+    // If the key exists, update the line. Otherwise, add a new line.
+    if (lineIndex !== -1) {
+      lines[lineIndex] = `${key}=${value}`
+    } else {
+      lines.push(`${key}=${value}`)
+    }
+
+    if (await fileExists(configFilePath)) {
+      await fs.unlink(configFilePath)
+    }
+    // Join the lines back together and write the file
+    writeFileSync(configFilePath, lines.join("\n"))
+  } catch (error) {
+    console.error("Error writing to file:", error)
+  }
+}
+
+export async function readConfigFileContent(
+  absolutePathToConfigFileFromHomeConfigFolder: string
+) {
+  const configFilePath = path.join(
+    os.homedir(),
+    `.config/${absolutePathToConfigFileFromHomeConfigFolder}`
+  )
+  const file = Bun.file(configFilePath)
+  return await file.text()
+}
+
+export async function readConfigFileValue(
+  absolutePathToConfigFileFromHomeConfigFolder: string,
+  key: string
+) {
+  const configFilePath = path.join(
+    os.homedir(),
+    `.config/${absolutePathToConfigFileFromHomeConfigFolder}`
+  )
+  const file = Bun.file(configFilePath)
+  const text = await file.text()
+
+  // Split the text by lines
+  const lines = text.split("\n")
+
+  // Iterate over the lines
+  for (const line of lines) {
+    // Split the line by the '=' character
+    const parts = line.split("=")
+    if (parts[0].trim() === key) {
+      // If the key matches, return the value
+      return parts[1].trim()
+    }
+  }
+
+  // If no matching key is found, return null
+  return null
+}
+
+async function fileExists(filePath: string): Promise<boolean> {
+  try {
+    await fs.access(filePath)
+    return true
+  } catch {
+    return false
+  }
 }

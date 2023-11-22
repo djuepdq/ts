@@ -1,11 +1,27 @@
-console.log(focusing())
+import { readConfigFileValue } from "../packages/util/src/file.js"
+
+console.log(await focusing())
 
 // true = time to focus
 // false = can take break
-function focusing() {
+async function focusing() {
   const now = new Date()
   const hours = now.getHours()
   const minutes = now.getMinutes()
+
+  const forcedBreakTimeEndString = await readConfigFileValue(
+    ".focus",
+    "forcedBreakTimeEnd"
+  )
+  if (forcedBreakTimeEndString === null) {
+    throw new Error("forcedBreakTimeEnd is not defined in the config file")
+  }
+  const forcedBreakTimeEnd = new Date(forcedBreakTimeEndString)
+
+  // Check if current time is within the forced break time end
+  if (now.getTime() <= forcedBreakTimeEnd.getTime()) {
+    return false
+  }
 
   // check if current time is within the specified break intervals
   if (
