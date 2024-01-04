@@ -6,7 +6,8 @@ if (timezone) {
   console.log(getCurrentTime(timezone))
 }
 
-function getCurrentTime(timezone: "sf") {
+// TODO: add more timezones
+function getCurrentTime(timezone: "sf" | "all") {
   const date = new Date()
   const options: Intl.DateTimeFormatOptions = {
     timeZone: "America/Los_Angeles",
@@ -15,5 +16,5 @@ function getCurrentTime(timezone: "sf") {
     hour12: false,
   }
   const formatter = new Intl.DateTimeFormat("en-US", options)
-  return `Time in SF: ${formatter.format(date)}`
+  return `SF: ${formatter.format(date)}`
 }
