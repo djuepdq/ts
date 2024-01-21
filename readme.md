@@ -55,15 +55,15 @@ npm publish
 
 ## Deno
 
-Exploring use of [Deno in separate repo](https://github.com/nikitavoloboev/deno) as it has interesting ideas/libraries. Might become part of this repo eventually.
+Exploring use of [Deno in separate repo](https://github.com/nikitavoloboev/deno) as it has interesting ideas/libraries. Might become part of this repo too.
 
 ## Contribute
 
-The tasks to do are outlined in [GitHub issues](../../issues) and in [todo.md](todo.md) (sorted by priority).
+Always open to useful ideas or fixes in form of issues or PRs.
 
-If issue/idea you have is not there, [open new issue](../../issues/new/choose) or [start discussion](../../discussions).
+Can [open new issue](../../issues/new/choose) (search [existing issues](../../issues) first) or [start discussion](../../discussions).
 
-Any PR with code/doc improvements is welcome. ✨
+It's okay to submit draft PR as you can get help along the way to make it merge ready.
 
 Join [Discord](https://discord.com/invite/TVafwaD23d) for more indepth discussions on this repo and [others](https://github.com/nikitavoloboev#src).
 
