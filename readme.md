@@ -63,7 +63,7 @@ Always open to useful ideas or fixes in form of issues or PRs.
 
 Can [open new issue](../../issues/new/choose) (search [existing issues](../../issues) first) or [start discussion](../../discussions).
 
-It's okay to submit draft PR as you can get help along the way to make it merge ready.
+It's okay to submit draft [PR](../../pulls) as you can get help along the way to make it merge ready.
 
 Join [Discord](https://discord.com/invite/TVafwaD23d) for more indepth discussions on this repo and [others](https://github.com/nikitavoloboev#src).
 
