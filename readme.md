@@ -1,6 +1,6 @@
 # TS
 
-> TS libraries + testing code
+> TS libraries and other code
 
 ## File structure
 
