@@ -1,4 +1,3 @@
-// @ts-ignore
 const args = Bun.argv
 const filePath = args[2]
 

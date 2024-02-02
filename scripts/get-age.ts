@@ -1,4 +1,3 @@
-// @ts-ignore
 const args = Bun.argv
 const date = args[2]
 
