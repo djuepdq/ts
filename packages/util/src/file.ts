@@ -143,6 +143,7 @@ export async function readConfigFileValue(
   return null
 }
 
+// returns true if file/folder of filePath exists
 async function fileExists(filePath: string): Promise<boolean> {
   try {
     await fs.access(filePath)
