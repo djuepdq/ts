@@ -3,9 +3,21 @@ import path from "path"
 import os from "os"
 // import { fileOrFolderExists } from "@nikiv/util"
 
+const args = Bun.argv
+const todo = args[2]
+const description = args[3]
+
 // TODO: make own https://github.com/antfu/utils package and publish, for now link @nikiv/util
 async function showTodo() {
-  await writeJsonToFile("~/.scripts/show-todo.json", { todo: "do thing" })
+  if (!todo) {
+    console.log("provide todo")
+    return
+  }
+  const todoJson: { todo: string; description?: string } = { todo: todo }
+  if (description) {
+    todoJson.description = description
+  }
+  await writeJsonToFile("~/.scripts/show-todo.json", todoJson)
 }
 
 showTodo()
