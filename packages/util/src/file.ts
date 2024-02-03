@@ -6,7 +6,7 @@ import os from "os"
 // returns path of file on success
 export async function writeContentToSrcData(
   data: Array<any>,
-  fileName: string
+  fileName: string,
 ): Promise<string | void> {
   const srcDataDir = path.join(os.homedir(), "src", "data")
 
@@ -25,7 +25,7 @@ export async function writeContentToSrcData(
 // returns path of file on success
 export async function writeContentToDesktopFile(
   data: Array<any>,
-  fileName: string
+  fileName: string,
 ): Promise<string | void> {
   const desktopDir = path.join(os.homedir(), "Desktop")
   const filePath = path.join(desktopDir, fileName)
@@ -47,7 +47,7 @@ export async function readFileContent(filePath: string) {
 
 export function getFilePathOfFileFromProvidedAbsolutePathFromExecutedBunFile(
   filePathOfBunFile: string,
-  absolutePath: string
+  absolutePath: string,
 ) {
   const directoryPath = path.dirname(filePathOfBunFile)
   const filePath = path.join(directoryPath, absolutePath)
@@ -65,17 +65,17 @@ export async function zipFile(filePath: string) {
 export async function updateConfigFile(
   absolutePathToConfigFileFromHomeConfigFolder: string,
   key: string,
-  value: string
+  value: string,
 ) {
   const configFilePath = path.join(
     os.homedir(),
-    `.config/${absolutePathToConfigFileFromHomeConfigFolder}`
+    `.config/${absolutePathToConfigFileFromHomeConfigFolder}`,
   )
 
   try {
     let content = ""
 
-    if (await fileExists(configFilePath)) {
+    if (await fileOrFolderExists(configFilePath)) {
       content = await fs.readFile(configFilePath, "utf-8")
     } else {
       await fs.writeFile(configFilePath, "")
@@ -94,7 +94,7 @@ export async function updateConfigFile(
       lines.push(`${key}=${value}`)
     }
 
-    if (await fileExists(configFilePath)) {
+    if (await fileOrFolderExists(configFilePath)) {
       await fs.unlink(configFilePath)
     }
     // Join the lines back together and write the file
@@ -105,11 +105,11 @@ export async function updateConfigFile(
 }
 
 export async function readConfigFileContent(
-  absolutePathToConfigFileFromHomeConfigFolder: string
+  absolutePathToConfigFileFromHomeConfigFolder: string,
 ) {
   const configFilePath = path.join(
     os.homedir(),
-    `.config/${absolutePathToConfigFileFromHomeConfigFolder}`
+    `.config/${absolutePathToConfigFileFromHomeConfigFolder}`,
   )
   const file = Bun.file(configFilePath)
   return await file.text()
@@ -117,11 +117,11 @@ export async function readConfigFileContent(
 
 export async function readConfigFileValue(
   absolutePathToConfigFileFromHomeConfigFolder: string,
-  key: string
+  key: string,
 ) {
   const configFilePath = path.join(
     os.homedir(),
-    `.config/${absolutePathToConfigFileFromHomeConfigFolder}`
+    `.config/${absolutePathToConfigFileFromHomeConfigFolder}`,
   )
   const file = Bun.file(configFilePath)
   const text = await file.text()
@@ -144,11 +144,36 @@ export async function readConfigFileValue(
 }
 
 // returns true if file/folder of filePath exists
-async function fileExists(filePath: string): Promise<boolean> {
+export async function fileOrFolderExists(filePath: string): Promise<boolean> {
   try {
     await fs.access(filePath)
     return true
   } catch {
     return false
+  }
+}
+
+// creates folder if it doesn't exist. accepts ~ as home directory
+export async function createFolderIfDoesntExist(folderPath: string) {
+  // replace '~' with user's home directory
+  const resolvedFolderPath = folderPath.startsWith("~")
+    ? path.join(os.homedir(), folderPath.slice(1))
+    : folderPath
+
+  if (!(await fileOrFolderExists(resolvedFolderPath))) {
+    await fs.mkdir(resolvedFolderPath, { recursive: true })
+  }
+}
+
+export async function createFileIfDoesntExist(filePath: string) {
+  // replace '~' with user's home directory
+  const resolvedFilePath = filePath.startsWith("~")
+    ? path.join(os.homedir(), filePath.slice(1))
+    : filePath
+
+  if (!(await fileOrFolderExists(resolvedFilePath))) {
+    const directoryPath = path.dirname(resolvedFilePath)
+    await createFolderIfDoesntExist(directoryPath)
+    await fs.writeFile(resolvedFilePath, "", { flag: "wx" }) // 'wx' flag creates file if it does not exist and fails if it does
   }
 }
