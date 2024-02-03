@@ -177,3 +177,18 @@ export async function createFileIfDoesntExist(filePath: string) {
     await fs.writeFile(resolvedFilePath, "", { flag: "wx" }) // 'wx' flag creates file if it does not exist and fails if it does
   }
 }
+
+// overwrite content of the file at filePath with data
+export async function writeJsonToFile(filePath: string, data: object) {
+  // replace '~' with user's home directory
+  const resolvedFilePath = filePath.startsWith("~")
+    ? path.join(os.homedir(), filePath.slice(1))
+    : filePath
+
+  // ensure directory exists before writing the file
+  const directoryPath = path.dirname(resolvedFilePath)
+  await createFolderIfDoesntExist(directoryPath)
+
+  // Write JSON data to the file
+  await fs.writeFile(resolvedFilePath, JSON.stringify(data, null, 2))
+}

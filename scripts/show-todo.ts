@@ -1,11 +1,11 @@
 import { promises as fs } from "fs"
 import path from "path"
 import os from "os"
-import { fileOrFolderExists } from "@nikiv/util"
+// import { fileOrFolderExists } from "@nikiv/util"
 
 // TODO: make own https://github.com/antfu/utils package and publish, for now link @nikiv/util
 async function showTodo() {
-  await createFileIfDoesntExist("~/.scripts/show-todo")
+  await writeJsonToFile("~/.scripts/show-todo.json", { todo: "do thing" })
 }
 
 showTodo()
@@ -44,4 +44,18 @@ async function createFileIfDoesntExist(filePath: string) {
     await createFolderIfDoesntExist(directoryPath)
     await fs.writeFile(resolvedFilePath, "", { flag: "wx" }) // 'wx' flag creates file if it does not exist and fails if it does
   }
+}
+
+export async function writeJsonToFile(filePath: string, data: object) {
+  // replace '~' with user's home directory
+  const resolvedFilePath = filePath.startsWith("~")
+    ? path.join(os.homedir(), filePath.slice(1))
+    : filePath
+
+  // ensure directory exists before writing the file
+  const directoryPath = path.dirname(resolvedFilePath)
+  await createFolderIfDoesntExist(directoryPath)
+
+  // Write JSON data to the file
+  await fs.writeFile(resolvedFilePath, JSON.stringify(data, null, 2))
 }
