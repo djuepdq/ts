@@ -1,26 +1,35 @@
 import { promises as fs } from "fs"
 import path from "path"
 import os from "os"
-// import { fileOrFolderExists } from "@nikiv/util"
+// import { readJsonFromFile } from "@nikiv/util"
+import clipboard from "clipboardy"
 
 const args = Bun.argv
-const todo = args[2]
-const description = args[3]
+const app = args[2]
+const todo = args[3]
+const description = args[4]
 
 // TODO: make own https://github.com/antfu/utils package and publish, for now link @nikiv/util
-async function showTodo() {
-  if (!todo) {
-    console.log("provide todo")
+async function newActiveTodo() {
+  if (app === "2Do") {
+    clipboard.readSync()
+    // TODO: regex to parse todo + optional description
     return
   }
-  const todoJson: { todo: string; description?: string } = { todo: todo }
-  if (description) {
-    todoJson.description = description
+  if (app === "CLI") {
+    if (!todo) {
+      console.log("provide todo as argument")
+      return
+    }
+    const todoJson: { todo: string; description?: string } = { todo: todo }
+    if (description) {
+      todoJson.description = description
+    }
+    await writeJsonToFile("~/.scripts/active-todo.json", todoJson)
   }
-  await writeJsonToFile("~/.scripts/show-todo.json", todoJson)
 }
 
-showTodo()
+newActiveTodo()
 
 // TODO: all functions below are copies from @nikiv/util/src/file
 // should be linking to that package instead of copying but import is breaking

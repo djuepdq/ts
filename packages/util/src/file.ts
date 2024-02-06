@@ -1,6 +1,6 @@
 import { promises as fs, writeFileSync } from "fs"
-import path from "path"
-import os from "os"
+import * as path from "path"
+import * as os from "os"
 
 // take in JSON of some kind and write it to ~/src/data
 // returns path of file on success
@@ -191,4 +191,26 @@ export async function writeJsonToFile(filePath: string, data: object) {
 
   // Write JSON data to the file
   await fs.writeFile(resolvedFilePath, JSON.stringify(data, null, 2))
+}
+
+export async function readJsonFromFile(filePath: string) {
+  const resolvedFilePath = filePath.startsWith("~")
+    ? path.join(os.homedir(), filePath.slice(1))
+    : filePath
+
+  const data = await fs.readFile(resolvedFilePath, "utf-8")
+  return JSON.parse(data)
+}
+
+export async function checkIfFieldExistsInJsonFile(
+  filePath: string,
+  fieldName: string,
+) {
+  const resolvedFilePath = filePath.startsWith("~")
+    ? path.join(os.homedir(), filePath.slice(1))
+    : filePath
+
+  const data = await fs.readFile(resolvedFilePath, "utf-8")
+  const json = JSON.parse(data)
+  return json[fieldName] !== undefined
 }
