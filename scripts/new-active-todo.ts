@@ -16,6 +16,14 @@ async function newActiveTodo() {
     writeJsonToFile("~/.scripts/active-todo.json", parsedTodo)
     return
   }
+  if (app === "ClipboardJustTodo") {
+    let todo = {
+      todo: clipboard.readSync(),
+      description: "",
+    }
+    writeJsonToFile("~/.scripts/active-todo.json", todo)
+    return
+  }
   if (app === "CLI") {
     if (!todo) {
       console.log("provide todo as argument")
