@@ -12,8 +12,8 @@ const description = args[4]
 // TODO: make own https://github.com/antfu/utils package and publish, for now link @nikiv/util
 async function newActiveTodo() {
   if (app === "2Do") {
-    clipboard.readSync()
-    // TODO: regex to parse todo + optional description
+    const parsedTodo = parse2Do(clipboard.readSync())
+    writeJsonToFile("~/.scripts/active-todo.json", parsedTodo)
     return
   }
   if (app === "CLI") {
@@ -79,4 +79,30 @@ export async function writeJsonToFile(filePath: string, data: object) {
 
   // Write JSON data to the file
   await fs.writeFile(resolvedFilePath, JSON.stringify(data, null, 2))
+}
+
+export function parse2Do(todo: string) {
+  // First, split the input by the first newline to separate todo and potential description
+  const parts = todo.split("\n", 2)
+  const firstPart = parts[0].trim()
+  const description = parts[1] ? parts[1].trim() : ""
+
+  // Adjust the regex to remove the `- ` prefix and `(Today)` part from the first part
+  // This regex matches the start, optional `- `, any characters, and optional ` (Today)`
+  const regex = /^-?\s?(.*?)\s*(\(Today\))?$/
+  const match = firstPart.match(regex)
+
+  if (match) {
+    return {
+      // Ensure we're returning the captured group without `- ` and `(Today)`
+      todo: match[1].trim(),
+      description: description,
+    }
+  } else {
+    // If no match (which should not happen with adjusted regex), return the input as is
+    return {
+      todo: firstPart,
+      description: description,
+    }
+  }
 }
