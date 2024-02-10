@@ -17,9 +17,16 @@ async function newActiveTodo() {
     return
   }
   if (app === "ClipboardJustTodo") {
+    const todoTask = clipboard.readSync()
+    let description = ""
+    let cutTask = false
+    if (todoTask.length > 42) {
+      description = todoTask.slice(42)
+      cutTask = true
+    }
     let todo = {
-      todo: clipboard.readSync(),
-      description: "",
+      todo: cutTask ? todoTask.slice(0, 42) : todoTask,
+      description: description,
     }
     writeJsonToFile("~/.scripts/active-todo.json", todo)
     return

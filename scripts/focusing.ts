@@ -11,7 +11,7 @@ async function focusing() {
 
   const forcedBreakTimeEndString = await readConfigFileValue(
     ".focus",
-    "forcedBreakTimeEnd"
+    "forcedBreakTimeEnd",
   )
   if (forcedBreakTimeEndString === null) {
     throw new Error("forcedBreakTimeEnd is not defined in the config file")
