@@ -1,3 +1,4 @@
+// doing https://effect.website/docs/why-effect
 import { Effect } from "effect"
 
 const divide = (a: number, b: number): Effect.Effect<number, Error> =>
