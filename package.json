@@ -15,6 +15,7 @@
     "@clack/core": "^0.3.3",
     "@clack/prompts": "^0.7.0",
     "@libsql/client": "^0.4.3",
+    "@nikitavoloboev/ts": "*",
     "@nozbe/microfuzz": "^1.0.0",
     "@orama/orama": "^2.0.5",
     "@types/node": "^20.11.17",

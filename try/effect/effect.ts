@@ -1,8 +1,9 @@
-// -- https://effect.website/docs --
+// -- https://effect.website/docs
 import { Effect } from "effect"
 import * as NodeFS from "node:fs"
+// import
 
-// -- https://effect.website/docs/guides/essentials/creating-effects --
+// -- https://effect.website/docs/guides/essentials/creating-effects
 
 const successProgram = Effect.succeed(42)
 const errorProgram = Effect.fail("my error")
