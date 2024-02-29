@@ -14,7 +14,6 @@ packages/other
 deno
 docs/private-todo.md
 dist
-packages/solid
 run.ts
 wip.json
 wip.md

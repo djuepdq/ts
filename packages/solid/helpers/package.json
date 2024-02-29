@@ -1,0 +1,16 @@
+{
+  "name": "solid-helpers",
+  "scripts": {
+    "dev": "tsc -w",
+    "build": "tsc"
+  },
+  "type": "module",
+  "module": "./index.ts",
+  "types": "./index.ts",
+  "exports": {
+    ".": "./index.ts"
+  },
+  "devDependencies": {
+    "typescript": "^5.2.2"
+  }
+}
