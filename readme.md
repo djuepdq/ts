@@ -10,7 +10,7 @@
 
 ## Setup
 
-[Bun](https://bun.sh/) is used to install deps and run things.
+[Bun](https://bun.sh/) is used to run things.
 
 ```
 bun i
