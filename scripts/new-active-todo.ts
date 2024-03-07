@@ -11,9 +11,20 @@ const description = args[4]
 
 // TODO: make own https://github.com/antfu/utils package and publish, for now link @nikiv/util
 async function newActiveTodo() {
-  if (app === "2Do") {
-    const parsedTodo = parse2Do(clipboard.readSync())
-    writeJsonToFile("~/.scripts/active-todo.json", parsedTodo)
+  if (app === "Things") {
+    // TODO: update
+    const todoTask = clipboard.readSync()
+    let description = ""
+    let cutTask = false
+    if (todoTask.length > 42) {
+      description = todoTask.slice(42)
+      cutTask = true
+    }
+    let todo = {
+      todo: cutTask ? todoTask.slice(0, 42) : todoTask,
+      description: description,
+    }
+    writeJsonToFile("~/.scripts/active-todo.json", todo)
     return
   }
   if (app === "ClipboardJustTodo") {
@@ -42,6 +53,12 @@ async function newActiveTodo() {
     }
     await writeJsonToFile("~/.scripts/active-todo.json", todoJson)
   }
+  // no longer using 2Do
+  // if (app === "2Do") {
+  //   const parsedTodo = parse2Do(clipboard.readSync())
+  //   writeJsonToFile("~/.scripts/active-todo.json", parsedTodo)
+  //   return
+  // }
 }
 
 newActiveTodo()
