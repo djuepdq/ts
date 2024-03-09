@@ -35,7 +35,7 @@ async function executeJxa(script: string) {
 // TODO: add support for google chrome, chrome canary, safari tech preview
 // TODO: change from safari.ts to browser.ts, use code as part of CLI
 async function fetchLocalTabs(
-  appIdentifier: "com.apple.Safari"
+  appIdentifier: "com.apple.Safari",
 ): Promise<LocalTab[]> {
   return executeJxa(`
     const safari = Application("${appIdentifier}");
@@ -72,7 +72,7 @@ const folderPath = path.join(os.homedir(), "/data/safari-sessions")
 
 let date = new Date()
 let currentDateStr = `${date.getFullYear()}-${String(
-  date.getMonth() + 1
+  date.getMonth() + 1,
 ).padStart(2, "0")}-${String(date.getDate()).padStart(2, "0")}`
 
 const filePath = path.join(folderPath + `/${currentDateStr}-safari-tabs.json`)
@@ -84,7 +84,7 @@ if (fs.existsSync(filePath)) {
   while (fs.existsSync(newPath)) {
     newPath = path.join(
       folderPath,
-      `/${currentDateStr}-safari-tabs-${number}.json`
+      `/${currentDateStr}-safari-tabs-${number}.json`,
     )
     number++
   }

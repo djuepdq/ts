@@ -2,12 +2,6 @@ import { promises as fs, writeFileSync } from "fs"
 import * as path from "path"
 import * as os from "os"
 
-export function sayHello() {
-  console.log("wow")
-  console.log("wow")
-  console.log("this is cool")
-}
-
 // take in JSON of some kind and write it to ~/src/data
 // returns path of file on success
 export async function writeContentToSrcData(

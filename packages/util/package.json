@@ -35,5 +35,8 @@
   },
   "prettier": {
     "semi": false
+  },
+  "dependencies": {
+    "@types/bun": "^1.0.8"
   }
 }
