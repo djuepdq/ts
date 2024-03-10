@@ -193,6 +193,53 @@ export async function writeJsonToFile(filePath: string, data: object) {
   await fs.writeFile(resolvedFilePath, JSON.stringify(data, null, 2))
 }
 
+// overwrite content of the file at filePath with an array of objects
+export async function writeJsonArrayToFile(
+  filePath: string,
+  data: Array<object>,
+) {
+  // replace '~' with user's home directory
+  const resolvedFilePath = filePath.startsWith("~")
+    ? path.join(os.homedir(), filePath.slice(1))
+    : filePath
+
+  // ensure directory exists before writing the file
+  const directoryPath = path.dirname(resolvedFilePath)
+  await createFolderIfDoesntExist(directoryPath)
+
+  // Write JSON array with objects to the file
+  await fs.writeFile(resolvedFilePath, JSON.stringify(data, null, 2))
+}
+
+// Function to append a new object to an existing JSON array file or create a new file with the object as the first entry in an array
+export async function appendObjectToJsonArrayFile(
+  filePath: string,
+  newData: object,
+): Promise<void> {
+  // Use the existing utility to resolve the file path, considering '~' as the home directory
+  const resolvedFilePath = filePath.startsWith("~")
+    ? path.join(os.homedir(), filePath.slice(1))
+    : filePath
+
+  let dataArray: Array<object> = []
+
+  // Check if the file exists using the existing utility
+  if (await fileOrFolderExists(resolvedFilePath)) {
+    // If the file exists, read its content
+    const fileContents = await readJsonFromFile(resolvedFilePath)
+    if (Array.isArray(fileContents)) {
+      // Ensure the content is an array before appending
+      dataArray = fileContents
+    }
+  }
+
+  // Append the new data object to the array
+  dataArray.push(newData)
+
+  // Use the existing function to write the updated array back to the file
+  await writeJsonArrayToFile(filePath, dataArray)
+}
+
 export async function readJsonFromFile(filePath: string) {
   const resolvedFilePath = filePath.startsWith("~")
     ? path.join(os.homedir(), filePath.slice(1))

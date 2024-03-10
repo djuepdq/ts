@@ -1,7 +1,7 @@
-import osascript from "osascript-tag"
 import os from "os"
 import path from "path"
 import fs from "fs"
+import { executeJxa } from "../packages/util/src/jxa.js"
 
 // TODO: support safari tech preview
 
@@ -19,17 +19,6 @@ type Tab = {
 type LocalTab = Tab & {
   window_id: number
   index: number
-}
-
-async function executeJxa(script: string) {
-  try {
-    const result = await osascript.jxa({ parse: true })`${script}`
-    return result
-  } catch (err: unknown) {
-    if (typeof err === "string") {
-      console.error(err, "failed to execute jxa")
-    }
-  }
 }
 
 // TODO: add support for google chrome, chrome canary, safari tech preview
