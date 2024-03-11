@@ -17,7 +17,7 @@ async function main() {
     case "top":
       newLink = {
         ...(await getCurrentSafariUrlAndTitle()),
-        timeAdded: getCurrentMonthAndDay(),
+        dateAdded: getCurrentMonthAndDay(),
         top: true,
       }
       if (newLink.url === null) {
@@ -28,7 +28,7 @@ async function main() {
     default:
       newLink = {
         ...(await getCurrentSafariUrlAndTitle()),
-        timeAdded: getCurrentMonthAndDay(),
+        dateAdded: getCurrentMonthAndDay(),
       }
       if (newLink.url === null) {
         throw new Error("No URL found")
