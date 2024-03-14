@@ -76,7 +76,7 @@ async function getConnections(filePaths: string[]) {
         const reverseConnections = connections.get(linkName)
         reverseConnections.set(
           fileName,
-          (reverseConnections.get(fileName) || 0) + 1
+          (reverseConnections.get(fileName) || 0) + 1,
         )
       }
     }
@@ -94,13 +94,14 @@ async function getConnections(filePaths: string[]) {
 
   const connectionsArray = JSON.stringify(result, null, 2)
   console.log(connectionsArray)
+  // TODO: switch to use `appendToClipboard` from utils
   clipboard.writeSync(connectionsArray)
   return result
 }
 
 export async function markdownFilePaths(
   directoryPath: string,
-  ignoreList: string[] = []
+  ignoreList: string[] = [],
 ): Promise<string[]> {
   let filesToProcess: string[] = []
   const entries = fs.readdirSync(directoryPath, { withFileTypes: true })
@@ -258,7 +259,7 @@ function extractNotes(markdownContent: string) {
 
 export async function writeToFile(
   filePath: string,
-  content: string
+  content: string,
 ): Promise<void> {
   try {
     await fs.promises.writeFile(filePath, content)
@@ -284,7 +285,7 @@ export async function mdFileIntoTopic(filePath: string, rootPath: string) {
 
   // Extract title from frontmatter
   const frontmatterMatch = fileContent.match(
-    /^---\n(?:.*\n)*title: (.*)\n(?:.*\n)*---/m
+    /^---\n(?:.*\n)*title: (.*)\n(?:.*\n)*---/m,
   )
   // If title is not found in frontmatter, extract it from first heading
   let title = frontmatterMatch ? frontmatterMatch[1] : ""
@@ -358,11 +359,11 @@ export async function mdFileIntoTopic(filePath: string, rootPath: string) {
   writeToFile(`/Users/nikiv/Desktop/wiki/${topicName}-content.md`, content)
   writeToFile(
     `/Users/nikiv/Desktop/wiki/${topicName}-notes.md`,
-    notes.length + " " + JSON.stringify(notes)
+    notes.length + " " + JSON.stringify(notes),
   )
   writeToFile(
     `/Users/nikiv/Desktop/wiki/${topicName}-links.md`,
-    links.length + " " + JSON.stringify(links)
+    links.length + " " + JSON.stringify(links),
   )
 
   // await addTopic(

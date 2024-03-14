@@ -1,8 +1,8 @@
 import { promises as fs } from "fs"
 import path from "path"
 import os from "os"
+import { getClipboard } from "../packages/util/clipboard.js"
 // import { readJsonFromFile } from "@nikiv/util"
-import clipboard from "clipboardy"
 
 const args = Bun.argv
 const app = args[2]
@@ -13,7 +13,7 @@ const description = args[4]
 async function newActiveTodo() {
   if (app === "Things") {
     // TODO: update
-    const todoTask = clipboard.readSync()
+    const todoTask = getClipboard()
     let description = ""
     let cutTask = false
     if (todoTask.length > 42) {
@@ -28,7 +28,7 @@ async function newActiveTodo() {
     return
   }
   if (app === "ClipboardJustTodo") {
-    const todoTask = clipboard.readSync()
+    const todoTask = getClipboard()
     let description = ""
     let cutTask = false
     if (todoTask.length > 42) {
@@ -55,7 +55,7 @@ async function newActiveTodo() {
   }
   // no longer using 2Do
   // if (app === "2Do") {
-  //   const parsedTodo = parse2Do(clipboard.readSync())
+  //   const parsedTodo = parse2Do(getClipboard())
   //   writeJsonToFile("~/.scripts/active-todo.json", parsedTodo)
   //   return
   // }

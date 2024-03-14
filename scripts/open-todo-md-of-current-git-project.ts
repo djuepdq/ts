@@ -1,9 +1,7 @@
 import fs from "fs"
-import path from "path"
-import clipboard from "clipboardy"
 import open from "open"
-
-const filePath = clipboard.readSync()
+import path from "path"
+import { getClipboard } from "../packages/util/clipboard.js"
 
 function findNearestGitFolder(startPath) {
   let currentPath = startPath
@@ -21,7 +19,7 @@ function findNearestGitFolder(startPath) {
   return null
 }
 
-const gitFolderPath = findNearestGitFolder(filePath)
+const gitFolderPath = findNearestGitFolder(getClipboard())
 
 if (gitFolderPath) {
   console.log(gitFolderPath, "path")

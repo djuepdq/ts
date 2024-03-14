@@ -1,7 +1,5 @@
-import clipboard from "clipboardy"
 import open from "open"
-
-const clipboardContent = clipboard.readSync()
+import { getClipboard } from "../packages/util/clipboard.js"
 
 async function getFinalUrl(url) {
   const response = await fetch(url, {
@@ -14,7 +12,7 @@ async function getFinalUrl(url) {
 }
 
 const initialUrl = `http://www.google.com/search?q=${encodeURIComponent(
-  clipboardContent
+  getClipboard(),
 )}&btnI`
 getFinalUrl(initialUrl).then(async (redirectUrl) => {
   if (redirectUrl) {
